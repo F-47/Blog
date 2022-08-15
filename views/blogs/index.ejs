@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include('../partials/head.ejs')%>
+  <body>
+    <%- include('../partials/nav.ejs') %>
+    <div class="blogs content">
+      <div class="container" style="height: 90vh">
+        <div
+          class="cards d-flex justify-content-center align-items-center flex-row gap-5 flex-column"
+        >
+          <h3 class="fw-bold fs-2 text-center">All Blogs:</h3>
+          <% if(blogs.length>0){ %> <% blogs.forEach(blog => { %>
+          <div class="card border-dark bg-white" style="width: 30rem">
+            <div class="card-header text-capitalize fw-bold fs-2">
+              <a class="text-dark" href="/blogs/<%=blog._id %>">
+                <%=blog.title%>
+              </a>
+            </div>
+            <div class="card-body">
+              <p class="card-text text-capitalize"><%=blog.snippet%></p>
+              <p class="card-text text-capitalize"><%=blog.body%></p>
+              <p class="card-text text-capitalize">
+                Created From <%=Math.floor(blog.createdFrom)%> Minutes
+              </p>
+            </div>
+          </div>
+          <% }) %> <% }else{ %>
+        </div>
+        <p class="text-danger fs-3 text-center">Nothing to show here....</p>
+        <%}%>
+      </div>
+    </div>
+    <%-include('../partials/footer.ejs')%>
+  </body>
+</html>

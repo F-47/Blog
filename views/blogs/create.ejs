@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%-include('../partials/head.ejs')%>
+  <body>
+    <%- include('../partials/nav.ejs') %>
+    <div
+      class="container d-flex justify-content-center align-items-center flex-column"
+      style="height: 90vh"
+    >
+      <form action="/blogs" method="POST">
+        <div class="mb-3">
+          <label for="title" class="form-label">Blog Title:</label>
+          <input
+            type="text"
+            autocomplete="off"
+            class="form-control"
+            id="title"
+            name="title"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="snippet" class="form-label">Blog Snippet:</label>
+          <input
+            type="text"
+            autocomplete="off"
+            class="form-control"
+            id="snippet"
+            name="snippet"
+          />
+        </div>
+        <div class="mb-3">
+          <label for="body" class="form-label">Blog Body:</label>
+          <textarea
+            id="body"
+            name="body"
+            class="form-control"
+            name="body"
+            required
+          ></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </form>
+      <%-include('../partials/footer.ejs')%>
+    </div>
+  </body>
+</html>
